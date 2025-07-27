@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz App - Anuj</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="quiz-box">
+    <h1 class="heading">🧠 JavaScript Quiz</h1>
+    <p class="progress">Question <span id="current">1</span> of <span id="total">5</span></p>
+    <h2 id="question">Loading question...</h2>
+    <div id="options" class="options"></div>
+    <button id="next-btn">Next</button>
+
+    <section id="result-box" class="hidden">
+      <h2>🎉 Quiz Completed</h2>
+      <p id="score-text"></p>
+      <button onclick="window.location.reload()">🔁 Restart</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
