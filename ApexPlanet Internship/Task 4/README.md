@@ -31,9 +31,8 @@ Task 4/
 ---
 
 ## 🚀 How to Run
-1. Download and extract the ZIP  
-2. Open `index.html` in your browser  
-3. Start adding tasks — data is saved automatically in your browser
+1. Open `index.html` in your browser  
+2. Start adding tasks — data is saved automatically in your browser
 
 ---
 
