@@ -1,0 +1,110 @@
+/* Task 4 Advanced To‑Do — Professional Styling */
+:root{
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --primary:#007acc;
+  --primary-600:#005f99;
+  --danger:#e11d48;
+  --border:#e5e7eb;
+  --chip:#eef2f7;
+  --shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+:root.dark{
+  --bg:#0f172a;
+  --card:#0b1220;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --primary:#4da3ff;
+  --primary-600:#2e7ec9;
+  --danger:#fb7185;
+  --border:#1f2937;
+  --chip:#111827;
+  --shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+.app-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:24px 20px; position:sticky; top:0; backdrop-filter:saturate(180%) blur(6px);
+}
+.app-header h1{font-size:22px; margin:0}
+.right-actions{display:flex; gap:10px; align-items:center}
+
+.container{max-width:920px; margin:0 auto; padding:0 16px 40px; display:grid; gap:16px}
+.card{
+  background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px;
+  box-shadow:var(--shadow);
+}
+.add-task form{display:grid; grid-template-columns:1fr 160px 160px 140px; gap:10px}
+.add-task .tips{margin-top:8px; color:var(--muted); font-size:12px}
+
+.controls{display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+.filters{display:flex; gap:8px; flex-wrap:wrap}
+.chip{border:none; background:var(--chip); padding:8px 12px; border-radius:999px; cursor:pointer}
+.chip.active{outline:2px solid var(--primary); color:var(--primary)}
+
+.search-sort{display:flex; gap:10px; flex-wrap:wrap}
+#searchInput, #taskInput, #dueDate, select{
+  padding:10px 12px; border:1px solid var(--border); border-radius:10px; background:transparent; color:var(--text)
+}
+#taskInput{width:100%}
+
+.list ul{list-style:none; padding:0; margin:0}
+.task{
+  display:grid; grid-template-columns:26px 34px 1fr auto; gap:10px; align-items:center;
+  padding:12px; border:1px solid var(--border); border-radius:12px; margin-bottom:10px; background:transparent
+}
+.drag{cursor:grab; user-select:none; color:var(--muted)}
+.task.completed .text{text-decoration:line-through; color:var(--muted)}
+.task .content{display:grid; gap:6px}
+.toprow{display:flex; justify-content:space-between; gap:10px; align-items:center}
+.meta{display:flex; gap:6px; align-items:center}
+.badge{font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid var(--border); color:var(--muted)}
+.badge.priority.high{color:#b91c1c; border-color:#fecaca; background:#fee2e2}
+.badge.priority.low{color:#065f46; border-color:#bbf7d0; background:#dcfce7}
+.checkbox{position:relative}
+.checkbox input{appearance:none; width:18px;height:18px;border:1.8px solid var(--border); border-radius:6px; display:inline-block}
+.checkbox input:checked{background:var(--primary); border-color:var(--primary)}
+.checkmark{display:none} /* purely cosmetic wrapper */
+
+.actions{display:flex; gap:6px}
+.icon-btn{border:none; background:transparent; cursor:pointer; font-size:18px}
+.icon-btn.delete{color:var(--danger)}
+
+.editInput{display:none; padding:8px 10px; border:1px dashed var(--border); border-radius:8px; width:100%}
+.task.editing .text{display:none}
+.task.editing .editInput{display:block}
+
+.btn{padding:10px 14px; border-radius:10px; border:1px solid var(--border); background:var(--card); cursor:pointer}
+.btn.primary{background:var(--primary); color:white; border-color:transparent}
+.btn.primary:hover{background:var(--primary-600)}
+.btn.secondary:hover{border-color:var(--primary)}
+.btn.danger{background:var(--danger); color:#fff; border-color:transparent}
+.btn.danger.outline{background:transparent; color:var(--danger); border-color:var(--danger)}
+
+.bulk-actions{display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+.muted{color:var(--muted)}
+
+.empty{display:none; text-align:center; padding:20px; color:var(--muted)}
+.hidden{display:none}
+
+.footer{max-width:920px; margin:20px auto; text-align:center; color:var(--muted); font-size:12px}
+
+@media (max-width: 900px){
+  .add-task form{grid-template-columns:1fr 1fr 1fr 1fr}
+}
+@media (max-width: 700px){
+  .add-task form{grid-template-columns:1fr 1fr; }
+}
+@media (max-width: 480px){
+  .controls{flex-direction:column; align-items:stretch}
+  .search-sort{width:100%}
+}

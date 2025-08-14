@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task 4 – Advanced To‑Do App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header">
+    <h1>✅ Task 4 — Advanced To‑Do</h1>
+    <div class="right-actions">
+      <button id="exportBtn" class="btn secondary" title="Export tasks as JSON">Export</button>
+      <button id="importBtn" class="btn secondary" title="Import tasks from JSON">Import</button>
+      <input type="file" id="importFile" accept="application/json" hidden>
+      <button id="themeToggle" class="btn" title="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="add-task card">
+      <form id="taskForm">
+        <input id="taskInput" type="text" placeholder="What do you need to do?" required />
+        <select id="priority">
+          <option value="normal" selected>Priority: Normal</option>
+          <option value="high">Priority: High</option>
+          <option value="low">Priority: Low</option>
+        </select>
+        <input id="dueDate" type="date" />
+        <button class="btn primary" type="submit">Add Task</button>
+      </form>
+      <div class="tips">Tip: Double‑click a task to edit. Drag handle ⠿ to reorder.</div>
+    </section>
+
+    <section class="controls card">
+      <div class="filters">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="active">Active</button>
+        <button class="chip" data-filter="completed">Completed</button>
+      </div>
+      <div class="search-sort">
+        <input id="searchInput" type="search" placeholder="Search tasks…" />
+        <select id="sortSelect" title="Sort tasks">
+          <option value="created-desc">Newest first</option>
+          <option value="created-asc">Oldest first</option>
+          <option value="due-asc">Due date ↑</option>
+          <option value="due-desc">Due date ↓</option>
+          <option value="priority-desc">Priority High→Low</option>
+          <option value="priority-asc">Priority Low→High</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="list card">
+      <ul id="taskList" aria-live="polite"></ul>
+      <div class="empty" id="emptyState">
+        <p>No tasks yet. Add your first task above ✨</p>
+      </div>
+    </section>
+
+    <section class="bulk-actions card">
+      <button id="completeAll" class="btn secondary">Mark all completed</button>
+      <button id="clearCompleted" class="btn danger">Clear completed</button>
+      <button id="deleteAll" class="btn danger outline">Delete all</button>
+      <span id="counter" class="muted"></span>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built by Anuj Parashar — Task 4 (ApexPlanet Internship)</p>
+  </footer>
+
+  <template id="taskItemTemplate">
+    <li class="task" draggable="true">
+      <span class="drag" title="Drag to reorder" aria-label="Drag handle">⠿</span>
+      <label class="checkbox">
+        <input type="checkbox" class="toggle">
+        <span class="checkmark"></span>
+      </label>
+      <div class="content">
+        <div class="toprow">
+          <span class="text"></span>
+          <span class="meta">
+            <span class="badge priority"></span>
+            <span class="badge due"></span>
+          </span>
+        </div>
+        <input class="editInput" type="text" />
+      </div>
+      <div class="actions">
+        <button class="icon-btn edit" title="Edit" aria-label="Edit">✏️</button>
+        <button class="icon-btn delete" title="Delete" aria-label="Delete">🗑️</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
